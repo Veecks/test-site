@@ -1,0 +1,167 @@
+$text-color: white;
+
+$desktop: 780px;
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
+body,html {
+    height: 100%;
+}
+
+body {
+    background-color: white;
+    margin: 0;
+    color: $text-color;
+    font-family: "Montserrat";
+    display: flex;
+    justify-content: center;
+    
+    @include desktop{
+        font-size: larger;
+    }
+    #bg {
+        margin: 0;
+        background-color: rgb(73, 102, 180);
+        clip-path: polygon(0 0, 100% 0, 100% 67%, 65% 100%, 0 100%);
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: -1;
+        @include desktop{
+            clip-path: polygon(0 0, 70% 0, 59% 100%, 0 100%, 0% 38%);
+        }
+    }
+}
+
+#wrapper {
+    width: 90%;
+    height: 100%;
+}
+
+#header {
+    margin-top: 10px;
+    a{
+        color: $text-color;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+}
+
+#content {
+    @include desktop {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "offer card";
+        margin-top: 8em;
+        justify-content: right;
+    }
+}
+
+.content-item {
+    @include desktop {
+        
+    }
+}
+
+#depositions {
+    margin: 0;
+    padding: 1.5em;
+    margin-top: 2.5em;
+    background-color: white;
+    color: black;
+    border-radius: 15px;
+    max-width: 450px;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0px 0px 25px rgba($color: #000000, $alpha: 0.4);
+    
+    @include desktop {
+        grid-area: card;
+        height:fit-content;
+        max-width: 400px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        li {
+            margin: 0;
+            padding: 0;
+            display: table;
+            margin-bottom: 20px;
+
+            .dot-container {
+                display: table-cell;
+                vertical-align: middle;
+            }
+            .dot {
+                height: 30px;
+                width: 30px;
+                display: inline-block;
+                vertical-align: middle;
+                background-color: lightgray;
+                border-radius: 50%;
+            }
+            p {
+                display: table-cell;
+                vertical-align: middle;
+                font-weight: 460;
+                padding: 5px;
+            }
+        }
+        li:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+#offer {
+    text-align: center;
+
+    @include desktop {
+        grid-area: offer;
+        text-align: left;
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 26em;
+    }
+    h1 {
+        margin: 0;
+        margin-top: 0.7em;
+        text-transform: uppercase;
+        font-size: 3em;
+        @include desktop {
+            margin: 0;
+        }
+    }
+    p {
+        margin: 0;
+        margin-top: 1.2em;
+        font-size: 1.3em;
+    }
+    button {
+        width: 70%;
+        max-width: 400px;
+        height: 4em;
+        margin: 0;
+        margin-top: 4em;
+        border: none;
+        border-radius: 20px;
+        background-color: rgb(231, 231, 187);
+        text-transform: uppercase;
+        font-weight: bold;
+        box-shadow: 0px 0px 15px rgba($color: #000000, $alpha: 0.4);
+    }
+
+    button:hover{
+        cursor: pointer;
+        transform: translate(0px, -5px);
+        box-shadow: 0px 5px 15px rgba($color: #000000, $alpha: 0.4);
+    }
+}
