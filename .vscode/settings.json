@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/19cc6de6-a4d2-41bd-9548-88851ff2b68c/resourceGroups/testing-group/providers/Microsoft.Web/sites/veecks-test",
+    "appService.deploySubpath": "."
+}
